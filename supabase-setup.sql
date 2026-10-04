@@ -219,9 +219,13 @@ alter table public.bookings enable row level security;
 
 -- PROFILES POLICIES
 -- Users can view their own profile
-create policy "Users can view own profile"
-  on public.profiles for select
-  using (auth.uid() = id);
+DROP POLICY IF EXISTS "Users can view own profile"
+ON public.profiles;
+
+CREATE POLICY "Users can view own profile"
+ON public.profiles
+FOR SELECT
+USING (auth.uid() = id);
 
 -- Admins can view and manage all profiles
 create policy "Admins can view and manage all profiles"
@@ -725,7 +729,7 @@ on conflict do nothing;
 -- 3. Execute the following SQL statement replacing the UUID:
 --
 --    INSERT INTO public.profiles (id, email, full_name, role)
---    VALUES ('ce4659ad-199f-4c55-9b2b-06d337af6d37', 'admin@racrob.et', 'RACROB Administrator', 'admin')
+--    VALUES ('4db294dd-37bf-44b3-abc4-96c4c77cfe3a', 'admin@racrob.et', 'RACROB Administrator', 'admin')
 --    ON CONFLICT (id) DO UPDATE SET role = 'admin';
 --
 -- 4. Open login.html in your browser, enter your credentials, and
