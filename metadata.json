@@ -1,0 +1,6 @@
+{
+  "name": "RACROB Water Pumps",
+  "description": "Premium water pump supplier and management system in Addis Ababa, Ethiopia - reliable industrial, agricultural, commercial, and residential water pumping solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

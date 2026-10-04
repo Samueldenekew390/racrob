@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | RACROB Water Pump Management</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/jpeg" href="assets/images/sami.jpg">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/admin.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <div class="admin-layout">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar-header">
+        <img src="assets/images/sami.jpg" alt="RACROB Logo" style="height:38px;border-radius:4px;">
+        <div>
+          <div style="font-weight:900;color:#FFF;font-size:1.15rem;line-height:1.1;">RACROB</div>
+          <div style="font-size:0.7rem;color:var(--accent-cyan);text-transform:uppercase;letter-spacing:1px;">Admin Console</div>
+        </div>
+      </div>
+
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item active">
+          <button data-tab="overview">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+            Overview
+          </button>
+        </li>
+        <li class="admin-nav-item">
+          <button data-tab="products">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 7 10-5 10 5-10 5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+            Products
+          </button>
+        </li>
+        <li class="admin-nav-item">
+          <button data-tab="applications">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+            Applications
+          </button>
+        </li>
+        <li class="admin-nav-item">
+          <button data-tab="slideshow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            Hero Slideshow
+          </button>
+        </li>
+        <li class="admin-nav-item">
+          <button data-tab="orders">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            Orders / Payments
+            <span class="admin-nav-badge" id="badge-orders-count" style="display:none;">0</span>
+          </button>
+        </li>
+        <li class="admin-nav-item">
+          <button data-tab="bookings">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Bookings
+            <span class="admin-nav-badge" id="badge-bookings-count" style="display:none;">0</span>
+          </button>
+        </li>
+        <li class="admin-nav-item">
+          <button data-tab="settings">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            Website Settings
+          </button>
+        </li>
+        <li class="admin-nav-item">
+          <button data-tab="social">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            Social Media
+          </button>
+        </li>
+        <li class="admin-nav-item">
+          <button data-tab="account">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Admin Account
+          </button>
+        </li>
+      </ul>
+
+      <div class="admin-sidebar-footer">
+        <a href="index.html" class="btn btn-secondary btn-sm btn-block" style="margin-bottom:8px;font-size:0.8rem;" target="_blank">
+          View Live Website ↗
+        </a>
+        <button class="btn btn-danger btn-sm btn-block" id="admin-logout-btn">
+          Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Admin Main Body -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div class="admin-topbar-left">
+          <button class="hamburger-admin-btn" id="admin-hamburger-btn" aria-label="Toggle Navigation">☰</button>
+          <h1 class="admin-page-title" id="admin-header-title">Dashboard Overview</h1>
+        </div>
+        <div class="admin-topbar-right">
+          <div class="admin-user-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            <span id="admin-user-email">admin@racrob.et</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="admin-content-area">
+        <!-- 1. OVERVIEW PANEL -->
+        <div class="admin-tab-panel active" id="panel-overview">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-icon-box metric-icon-blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 7 10-5 10 5-10 5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+              </div>
+              <div>
+                <div class="metric-label">Total Products</div>
+                <div class="metric-value" id="metric-total-products">0</div>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-icon-box metric-icon-green">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <div>
+                <div class="metric-label">Active Products</div>
+                <div class="metric-value" id="metric-active-products">0</div>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-icon-box metric-icon-amber">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <div>
+                <div class="metric-label">Pending Payments</div>
+                <div class="metric-value" id="metric-pending-orders">0</div>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-icon-box metric-icon-green">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div>
+                <div class="metric-label">Approved Payments</div>
+                <div class="metric-value" id="metric-approved-orders">0</div>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-icon-box metric-icon-purple">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div>
+                <div class="metric-label">Pending Bookings</div>
+                <div class="metric-value" id="metric-pending-bookings">0</div>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-icon-box metric-icon-blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+              <div>
+                <div class="metric-label">Applications</div>
+                <div class="metric-value" id="metric-total-apps">0</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">RACROB Management Overview</h2>
+            </div>
+            <div class="admin-card-body">
+              <p style="color:var(--text-muted);line-height:1.7;margin-bottom:16px;">
+                Welcome to the RACROB Water Pump administrative control center. From here you can manage live catalog inventory, review and approve customer payment receipts, schedule engineering consultations, control hero slideshow displays, and update your bank account numbers and contact information stored in Supabase.
+              </p>
+              <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <button class="btn btn-primary btn-sm" onclick="document.querySelector('[data-tab=products]').click()">Manage Products</button>
+                <button class="btn btn-secondary btn-sm" onclick="document.querySelector('[data-tab=orders]').click()">Review Payments</button>
+                <button class="btn btn-secondary btn-sm" onclick="document.querySelector('[data-tab=bookings]').click()">View Bookings</button>
+                <button class="btn btn-secondary btn-sm" onclick="document.querySelector('[data-tab=settings]').click()">Change Bank Account (1000)</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. PRODUCTS PANEL -->
+        <div class="admin-tab-panel" id="panel-products">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">Product Catalog</h2>
+              <button class="btn btn-success btn-sm" id="btn-add-product">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add New Product
+              </button>
+            </div>
+            <div class="admin-card-body" style="padding:0;">
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Image</th>
+                      <th>Product Name</th>
+                      <th>Category</th>
+                      <th>Price</th>
+                      <th>Status</th>
+                      <th>Order</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-products-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. APPLICATIONS PANEL -->
+        <div class="admin-tab-panel" id="panel-applications">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">Pumping Applications &amp; Case Videos</h2>
+              <button class="btn btn-success btn-sm" id="btn-add-app">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add Application
+              </button>
+            </div>
+            <div class="admin-card-body" style="padding:0;">
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Order</th>
+                      <th>Thumb</th>
+                      <th>Application Title</th>
+                      <th>Video URL</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-apps-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. SLIDESHOW PANEL -->
+        <div class="admin-tab-panel" id="panel-slideshow">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">Hero Slideshow Manager</h2>
+              <button class="btn btn-success btn-sm" id="btn-add-slide">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add Slide
+              </button>
+            </div>
+            <div class="admin-card-body" style="padding:0;">
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Order</th>
+                      <th>Image</th>
+                      <th>Title (EN / AM)</th>
+                      <th>Description</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-slides-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. ORDERS / PAYMENTS PANEL -->
+        <div class="admin-tab-panel" id="panel-orders">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">Customer Payment Receipts</h2>
+            </div>
+            <div class="admin-card-body" style="padding:0;">
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Customer</th>
+                      <th>Phone</th>
+                      <th>Receipt</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-orders-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. BOOKINGS PANEL -->
+        <div class="admin-tab-panel" id="panel-bookings">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">Consultation Booking Requests</h2>
+            </div>
+            <div class="admin-card-body" style="padding:0;">
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Ref Code</th>
+                      <th>Customer</th>
+                      <th>Phone</th>
+                      <th>Date &amp; Time</th>
+                      <th>Service Type</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-bookings-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. WEBSITE SETTINGS PANEL -->
+        <div class="admin-tab-panel" id="panel-settings">
+          <div class="admin-card" style="max-width:800px;">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">Website Configuration &amp; Payment Accounts</h2>
+            </div>
+            <div class="admin-card-body">
+              <form id="admin-settings-form">
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label class="form-label">Business Name</label>
+                    <input type="text" id="set-business-name" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Contact Phone (Clickable)</label>
+                    <input type="text" id="set-phone" class="form-control" required>
+                  </div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label class="form-label">Inquiry Email</label>
+                    <input type="email" id="set-email" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Default Payment Bank Account Number</label>
+                    <input type="text" id="set-bank-account" class="form-control" required placeholder="1000">
+                    <small style="color:var(--text-muted);font-size:0.75rem;">Initial default is 1000. Customer payment instructions display this value.</small>
+                  </div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label class="form-label">Bank Name</label>
+                    <input type="text" id="set-bank-name" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Account Holder Beneficiary</label>
+                    <input type="text" id="set-account-holder" class="form-control" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Showroom Physical Address</label>
+                  <input type="text" id="set-address" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Hero Main Headline</label>
+                  <input type="text" id="set-hero-heading" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Hero Business Description</label>
+                  <textarea id="set-hero-desc" class="form-control" required rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Google Maps URL</label>
+                  <input type="url" id="set-maps-url" class="form-control">
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="margin-top:16px;">Save Website Settings</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. SOCIAL MEDIA PANEL -->
+        <div class="admin-tab-panel" id="panel-social">
+          <div class="admin-card" style="max-width:700px;">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">Social Media Links</h2>
+            </div>
+            <div class="admin-card-body">
+              <form id="admin-social-form">
+                <div class="form-group">
+                  <label class="form-label">Facebook Page URL</label>
+                  <input type="url" id="social-fb" class="form-control" placeholder="https://www.facebook.com/share/1FaYKw8d7y/">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Twitter / X URL (Leave empty to hide)</label>
+                  <input type="url" id="social-tw" class="form-control" placeholder="https://x.com/yourhandle">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">LinkedIn Profile URL (Leave empty to hide)</label>
+                  <input type="url" id="social-in" class="form-control" placeholder="https://linkedin.com/company/yourcompany">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Instagram Profile URL (Leave empty to hide)</label>
+                  <input type="url" id="social-ig" class="form-control" placeholder="https://instagram.com/yourhandle">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">TikTok Profile URL (Leave empty to hide)</label>
+                  <input type="url" id="social-tt" class="form-control" placeholder="https://tiktok.com/@yourhandle">
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin-top:16px;">Save Social Links</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. ADMIN ACCOUNT PANEL -->
+        <div class="admin-tab-panel" id="panel-account">
+          <div class="admin-card" style="max-width:600px;margin-bottom:24px;">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">Update Administrator Email</h2>
+            </div>
+            <div class="admin-card-body">
+              <form id="admin-email-form">
+                <div class="form-group">
+                  <label class="form-label">New Email Address</label>
+                  <input type="email" id="account-new-email" class="form-control" required placeholder="new-admin@racrob.et">
+                </div>
+                <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:16px;">
+                  Note: Supabase will dispatch a confirmation email to the new address to verify ownership before the change takes effect.
+                </p>
+                <button type="submit" class="btn btn-primary btn-sm">Update Email</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="admin-card" style="max-width:600px;">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">Update Administrator Password</h2>
+            </div>
+            <div class="admin-card-body">
+              <form id="admin-password-form">
+                <div class="form-group">
+                  <label class="form-label">New Password (Min 6 characters)</label>
+                  <input type="password" id="account-new-pass" class="form-control" required minlength="6" autocomplete="new-password">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Confirm New Password</label>
+                  <input type="password" id="account-confirm-pass" class="form-control" required minlength="6" autocomplete="new-password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Change Password</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT FORM MODAL -->
+  <div class="modal-backdrop" id="product-form-modal" role="dialog" aria-modal="true">
+    <div class="modal-box modal-lg">
+      <button class="modal-close-btn" id="prod-modal-close">&times;</button>
+      <h3 class="modal-title" id="product-modal-title">Add / Edit Product</h3>
+
+      <form id="admin-product-form" style="margin-top:20px;">
+        <input type="hidden" id="prod-id">
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">Product Name (English) *</label>
+            <input type="text" id="prod-name-en" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Product Name (Amharic)</label>
+            <input type="text" id="prod-name-am" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">Description (English)</label>
+            <textarea id="prod-desc-en" class="form-control" rows="2"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description (Amharic)</label>
+            <textarea id="prod-desc-am" class="form-control" rows="2"></textarea>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">Price (ETB)</label>
+            <input type="number" id="prod-price" class="form-control" step="0.01">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select id="prod-category" class="form-control">
+              <option value="Pumps">Pumps</option>
+              <option value="Fittings">Fittings</option>
+              <option value="Flanges">Flanges</option>
+              <option value="Meters">Meters</option>
+              <option value="Submersible">Submersible</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">Model Code</label>
+            <input type="text" id="prod-model" class="form-control" placeholder="e.g. RCB-BST-500">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Display Sort Order</label>
+            <input type="number" id="prod-sort" class="form-control" value="0">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Product Image</label>
+          <div style="display:flex;gap:16px;align-items:center;">
+            <div class="img-preview-box">
+              <img id="prod-img-preview" src="assets/images/u.jpg" alt="Preview">
+            </div>
+            <div style="flex:1;">
+              <input type="file" id="prod-file-input" class="form-control" accept="image/*" style="margin-bottom:8px;">
+              <input type="text" id="prod-image-url" class="form-control" placeholder="Or enter image URL">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" style="display:flex;align-items:center;gap:10px;">
+          <input type="checkbox" id="prod-active" checked style="width:18px;height:18px;">
+          <label for="prod-active" style="font-weight:600;font-size:0.95rem;">Active &amp; Visible on Public Website</label>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SLIDE FORM MODAL -->
+  <div class="modal-backdrop" id="slide-form-modal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="slide-modal-close">&times;</button>
+      <h3 class="modal-title" id="slide-modal-title">Add / Edit Slide</h3>
+
+      <form id="admin-slide-form" style="margin-top:20px;">
+        <input type="hidden" id="slide-id">
+
+        <div class="form-group">
+          <label class="form-label">Slide Title (English) *</label>
+          <input type="text" id="slide-title-en" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Slide Title (Amharic)</label>
+          <input type="text" id="slide-title-am" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Description (English)</label>
+          <textarea id="slide-desc-en" class="form-control" rows="2"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Description (Amharic)</label>
+          <textarea id="slide-desc-am" class="form-control" rows="2"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Slide Image</label>
+          <div style="display:flex;gap:16px;align-items:center;">
+            <div class="img-preview-box">
+              <img id="slide-img-preview" src="assets/images/u.jpg" alt="Preview">
+            </div>
+            <div style="flex:1;">
+              <input type="file" id="slide-file-input" class="form-control" accept="image/*" style="margin-bottom:8px;">
+              <input type="text" id="slide-image-url" class="form-control" placeholder="Image URL">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">Sort Order</label>
+            <input type="number" id="slide-sort" class="form-control" value="0">
+          </div>
+          <div class="form-group" style="display:flex;align-items:center;margin-top:28px;">
+            <input type="checkbox" id="slide-active" checked style="width:18px;height:18px;margin-right:8px;">
+            <label for="slide-active" style="font-weight:600;">Active</label>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary">Save Slide</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- APPLICATION FORM MODAL -->
+  <div class="modal-backdrop" id="app-form-modal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="app-modal-close">&times;</button>
+      <h3 class="modal-title" id="app-modal-title">Add / Edit Application</h3>
+
+      <form id="admin-app-form" style="margin-top:20px;">
+        <input type="hidden" id="app-id">
+
+        <div class="form-group">
+          <label class="form-label">Application Name (English) *</label>
+          <input type="text" id="app-name-en" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Application Name (Amharic)</label>
+          <input type="text" id="app-name-am" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Description (English)</label>
+          <textarea id="app-desc-en" class="form-control" rows="2"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Video Embed URL</label>
+          <input type="url" id="app-video-url" class="form-control" placeholder="https://www.youtube.com/embed/...">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Thumbnail Image URL</label>
+          <input type="text" id="app-thumb-url" class="form-control" placeholder="assets/images/o.jpg">
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">Sort Order</label>
+            <input type="number" id="app-sort" class="form-control" value="0">
+          </div>
+          <div class="form-group" style="display:flex;align-items:center;margin-top:28px;">
+            <input type="checkbox" id="app-active" checked style="width:18px;height:18px;margin-right:8px;">
+            <label for="app-active" style="font-weight:600;">Active</label>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary">Save Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | RACROB Water Pump Management</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/jpeg" href="assets/images/sami.jpg">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--primary-navy) 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .login-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      max-width: 440px;
+      width: 100%;
+      padding: 40px;
+      border: 1px solid var(--border-color);
+    }
+    .login-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .login-logo {
+      height: 64px;
+      margin: 0 auto 16px auto;
+      border-radius: 8px;
+    }
+    .login-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--primary-navy);
+      margin-bottom: 6px;
+    }
+    .login-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .login-error {
+      background: #FEE2E2;
+      border: 1px solid #FCA5A5;
+      color: #B91C1C;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      margin-bottom: 20px;
+      display: none;
+    }
+    .login-footer-note {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .login-footer-note a {
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <div class="login-card">
+    <div class="login-header">
+      <img src="assets/images/sami.jpg" alt="RACROB Logo" class="login-logo">
+      <h1 class="login-title">RACROB Admin Portal</h1>
+      <p class="login-sub">Authorized personnel access only</p>
+    </div>
+
+    <div class="login-error" id="login-error-message"></div>
+
+    <form id="admin-login-form">
+      <div class="form-group">
+        <label class="form-label" for="admin-email">Administrator Email</label>
+        <input type="email" id="admin-email" class="form-control" placeholder="admin@racrob.et" required autocomplete="username">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="admin-password">Password</label>
+        <input type="password" id="admin-password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block" id="login-submit-btn" style="margin-top:24px;">
+        Sign In to Dashboard
+      </button>
+    </form>
+
+    <div class="login-footer-note">
+      <a href="index.html">← Return to Public Website</a>
+    </div>
+  </div>
+
+  <div style="margin-top:20px;text-align:center;color:#94A3B8;font-size:0.8rem;max-width:440px;">
+    Protected by Supabase Authentication with Row-Level Security.
+  </div>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RACROB | Reliable Water Pump Supplier in Addis Ababa, Ethiopia</title>
+  <meta name="description" content="RACROB supplies reliable water pumps and water-pumping solutions for residential, agricultural, commercial and construction applications in Addis Ababa, Ethiopia.">
+  <meta name="keywords" content="water pumps Ethiopia, RACROB, Addis Ababa water pumps, ductile iron fittings, booster pumps, submersible pumps, irrigation water solutions">
+  <link rel="canonical" href="https://racrob.et/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://racrob.et/">
+  <meta property="og:title" content="RACROB | Reliable Water Pump Supplier in Addis Ababa, Ethiopia">
+  <meta property="og:description" content="RACROB supplies reliable water pumps and water-pumping solutions for residential, agricultural, commercial and construction applications in Addis Ababa, Ethiopia.">
+  <meta property="og:image" content="assets/images/sami.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RACROB | Reliable Water Pump Supplier in Addis Ababa, Ethiopia">
+  <meta name="twitter:description" content="RACROB supplies reliable water pumps and water-pumping solutions for residential, agricultural, commercial and construction applications in Addis Ababa, Ethiopia.">
+  <meta name="twitter:image" content="assets/images/sami.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/images/sami.jpg">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- JSON-LD Structured Data for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "RACROB",
+    "image": "assets/images/sami.jpg",
+    "telephone": "0940414141",
+    "email": "contact@racrob.et",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Wereda 03, H.NO. 1263, Office NO.201, Ethio China St",
+      "addressLocality": "Addis Ababa",
+      "addressCountry": "ET"
+    },
+    "sameAs": [
+      "https://www.facebook.com/share/1FaYKw8d7y/"
+    ],
+    "description": "RACROB supplies reliable water pumps and water-pumping solutions for residential, agricultural, commercial and construction applications in Addis Ababa, Ethiopia."
+  }
+  </script>
+
+  <!-- Official Supabase JavaScript Client CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <!-- Left: Logo & Brand -->
+      <a href="index.html" class="brand-wrapper" aria-label="RACROB Home">
+        <img src="assets/images/sami.jpg" alt="RACROB Water Pumps Logo" class="brand-logo-img">
+        <div class="brand-text-block">
+          <span class="brand-title" data-i18n="brand">RACROB</span>
+          <span class="brand-subtitle" data-i18n="brandTagline">Water Pump Supplier</span>
+        </div>
+      </a>
+
+      <!-- Center: Navigation -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link active" data-i18n="navHome">Home</a>
+        <a href="products.html" class="nav-link" data-i18n="navProducts">Products</a>
+        <a href="applications.html" class="nav-link" data-i18n="navApplications">Applications</a>
+        <a href="booking.html" class="nav-link" data-i18n="navBooking">Booking</a>
+        <a href="#contact" class="nav-link" data-i18n="navContact">Contact</a>
+      </nav>
+
+      <!-- Right: Language Selector, Call CTA, Admin Icon -->
+      <div class="header-actions">
+        <!-- Language Dropdown -->
+        <div class="lang-selector-dropdown">
+          <button class="lang-btn" id="lang-selector-btn" aria-haspopup="true" aria-expanded="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            <span id="current-lang-label">EN</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-menu" id="lang-selector-menu" role="menu">
+            <div class="lang-option" data-lang="en">English (EN)</div>
+            <div class="lang-option" data-lang="am">አማርኛ (አማ)</div>
+            <div class="lang-option" data-lang="om">Afaan Oromoo</div>
+            <div class="lang-option" data-lang="ti">ትግርኛ (ትግ)</div>
+            <div class="lang-option" data-lang="sid">Sidaamu Afoo</div>
+            <div class="lang-option" data-lang="ar">العربية (RTL)</div>
+          </div>
+        </div>
+
+        <!-- Direct Phone Link -->
+        <a href="tel:0940414141" class="btn-call-header phone-tel-link" aria-label="Call RACROB 0940414141">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span class="phone-val-text">0940414141</span>
+        </a>
+
+        <!-- Discrete Admin Entry -->
+        <a href="login.html" class="btn-admin-icon" title="Staff Admin Login" aria-label="Admin Login">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </a>
+
+        <!-- Mobile Hamburger Trigger -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Open Navigation Menu">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <div class="brand-wrapper">
+        <img src="assets/images/sami.jpg" alt="RACROB Logo" style="height:36px;border-radius:4px;">
+        <span class="brand-title" style="font-size:1.3rem;">RACROB</span>
+      </div>
+      <button id="mobile-drawer-close" style="background:none;border:none;color:#FFFFFF;font-size:1.5rem;cursor:pointer;">&times;</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link active" data-i18n="navHome">Home</a>
+      <a href="products.html" class="mobile-nav-link" data-i18n="navProducts">Products</a>
+      <a href="applications.html" class="mobile-nav-link" data-i18n="navApplications">Applications</a>
+      <a href="booking.html" class="mobile-nav-link" data-i18n="navBooking">Booking</a>
+      <a href="#contact" class="mobile-nav-link" data-i18n="navContact">Contact</a>
+      <a href="login.html" class="mobile-nav-link" style="color:var(--metal-light);font-size:0.95rem;">Admin Login</a>
+    </nav>
+    <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);">
+      <a href="tel:0940414141" class="btn btn-success btn-block phone-tel-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span data-i18n="btnCallNow">Call Now</span> (<span class="phone-val-text">0940414141</span>)
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Section 1: Hero Slideshow -->
+    <!-- Order rule strictly enforced: 1. u.jpg, 2. o.jpg, 3. p.jpg, remaining images follow. Never include sami.jpg -->
+    <section class="hero-slideshow-wrapper" aria-label="Hero Slideshow">
+      <div class="slides-container" id="hero-slides-container">
+        <!-- Rendered dynamically by main.js with fallback slides -->
+      </div>
+      <button class="slide-nav-btn slide-prev" id="slide-prev-btn" aria-label="Previous Slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button class="slide-nav-btn slide-next" id="slide-next-btn" aria-label="Next Slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+      <div class="slide-dots" id="hero-slide-dots"></div>
+    </section>
+
+    <!-- Section 2: Business Description & Highlights -->
+    <section class="hero-intro-section">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-content">
+            <span class="intro-badge" data-i18n="brandTagline">Water Pump Supplier</span>
+            <h1 class="intro-heading" id="hero-intro-heading" data-i18n="heroHeading">Powering Reliable Water Solutions</h1>
+            <p class="intro-desc" id="hero-intro-desc" data-i18n="heroDescription">
+              From dependable residential water supply to demanding agricultural, commercial, and construction pumping applications, RACROB provides practical water-pumping solutions designed around performance, reliability, and the needs of every customer.
+            </p>
+            <div class="intro-actions">
+              <a href="products.html" class="btn btn-primary" data-i18n="btnExploreProducts">Explore Products</a>
+              <a href="booking.html" class="btn btn-secondary" data-i18n="btnBookConsultation">Book a Consultation</a>
+              <a href="tel:0940414141" class="btn btn-success phone-tel-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span data-i18n="btnCallNow">Call Now</span> (<span class="phone-val-text">0940414141</span>)
+              </a>
+            </div>
+          </div>
+
+          <div class="intro-highlights-card">
+            <div class="highlight-item">
+              <div class="highlight-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div>
+                <h2 class="highlight-title" style="font-size:1.1rem;">Engineering Grade Pumps</h2>
+                <p class="highlight-sub">European-standard booster, submersible, centrifugal, and multi-stage pressure pump systems.</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              </div>
+              <div>
+                <h2 class="highlight-title" style="font-size:1.1rem;">Heavy Ductile Iron &amp; Flanges</h2>
+                <p class="highlight-sub">BS EN545 duckfoot bends, all-socket tees, bronze flanges, and bulk flow meters in stock.</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <h2 class="highlight-title" style="font-size:1.1rem;">Technical Support &amp; Sizing</h2>
+                <p class="highlight-sub">Dedicated engineers providing calculation of pressure head, discharge rate, and fitting configuration.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Dynamic Products Section -->
+    <section class="section-wrapper" id="products">
+      <div class="container">
+        <div class="section-header-block">
+          <span class="section-tag" data-i18n="navProducts">Products</span>
+          <h2 class="section-title" data-i18n="sectionProductsTitle">Engineered Products &amp; Equipment</h2>
+          <p class="section-subtitle" data-i18n="sectionProductsSubtitle">Durable water pumps, heavy-duty ductile iron fittings, bronze flanges, and precision flow meters.</p>
+        </div>
+
+        <div class="products-grid" id="homepage-products-grid">
+          <!-- Dynamically populated from Supabase -->
+        </div>
+
+        <div style="text-align: center; margin-top: 48px;">
+          <a href="products.html" class="btn btn-primary" data-i18n="btnExploreProducts">View All Products &amp; Catalog</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Applications Section (Mobile 2x2 Grid) -->
+    <section class="section-wrapper bg-alt" id="applications">
+      <div class="container">
+        <div class="section-header-block">
+          <span class="section-tag" data-i18n="navApplications">Applications</span>
+          <h2 class="section-title" data-i18n="sectionApplicationsTitle">Water Pumping Applications</h2>
+          <p class="section-subtitle" data-i18n="sectionApplicationsSubtitle">Discover how RACROB water pumps and distribution systems power everyday municipal, agricultural, and industrial infrastructure.</p>
+        </div>
+
+        <div class="applications-grid" id="homepage-applications-grid">
+          <!-- Dynamically populated from Supabase (4 items initially: 2x2 on mobile) -->
+        </div>
+
+        <div style="text-align: center; margin-top: 48px;">
+          <a href="applications.html" class="btn btn-secondary">Explore All Application Scenarios</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Consultation Booking Section -->
+    <section class="section-wrapper" id="booking">
+      <div class="container">
+        <div class="section-header-block">
+          <span class="section-tag" data-i18n="navBooking">Consultation</span>
+          <h2 class="section-title" data-i18n="sectionBookingTitle">Schedule a Consultation</h2>
+          <p class="section-subtitle" data-i18n="sectionBookingSubtitle">Speak directly with our pumping engineers to calculate head, flow rates, and specify the ideal pump for your project.</p>
+        </div>
+
+        <div class="booking-section-card" style="max-width: 860px; margin: 0 auto;">
+          <div id="booking-result-box" style="display: none; margin-bottom: 24px;"></div>
+          <form id="consultation-booking-form">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="booking-name" data-i18n="bookingFullName">Full Name *</label>
+                <input type="text" id="booking-name" class="form-control" placeholder="Ato / W/ro Full Name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="booking-phone" data-i18n="bookingPhone">Phone Number *</label>
+                <input type="tel" id="booking-phone" class="form-control" placeholder="09XXXXXXXX" required>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="booking-email" data-i18n="bookingEmail">Email Address</label>
+                <input type="email" id="booking-email" class="form-control" placeholder="name@company.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="booking-service" data-i18n="bookingService">Service Required *</label>
+                <select id="booking-service" class="form-control" required>
+                  <option value="" data-i18n="bookingServiceSelect">Select consultation type...</option>
+                  <option value="Product Consultation" data-i18n="serviceProductConsultation">Product Consultation</option>
+                  <option value="Pump Selection & Flow Sizing" data-i18n="servicePumpSelection">Pump Selection & Flow Sizing</option>
+                  <option value="Installation & Pipeline Engineering" data-i18n="serviceInstallation">Installation & Pipeline Engineering</option>
+                  <option value="General Commercial Inquiry" data-i18n="serviceGeneralInquiry">General Commercial Inquiry</option>
+                  <option value="Other Special Request" data-i18n="serviceOther">Other Special Request</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="booking-date" data-i18n="bookingDate">Preferred Date *</label>
+                <input type="date" id="booking-date" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="booking-time" data-i18n="bookingTime">Preferred Time *</label>
+                <select id="booking-time" class="form-control" required>
+                  <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM - 12:00 PM)</option>
+                  <option value="Afternoon (2:00 PM - 5:00 PM)">Afternoon (2:00 PM - 5:00 PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="booking-message" data-i18n="bookingMessage">Project Description / Specific Requirements</label>
+              <textarea id="booking-message" class="form-control" placeholder="Specify depth, distance, water source or commercial building requirements..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="booking-submit-btn" data-i18n="btnSubmit">Submit Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Contact & Showroom Location -->
+    <section class="section-wrapper bg-alt" id="contact">
+      <div class="container">
+        <div class="section-header-block">
+          <span class="section-tag" data-i18n="navContact">Location</span>
+          <h2 class="section-title" data-i18n="sectionContactTitle">Contact &amp; Showroom Location</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card-box">
+            <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--primary-navy); margin-bottom: 8px;">RACROB Showroom &amp; Office</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Visit our showroom in Addis Ababa to inspect pumps, ductile fittings, and speak directly with our engineers.</p>
+
+            <div class="contact-info-list">
+              <div class="contact-item">
+                <div class="contact-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <span class="contact-label" data-i18n="locationAddressLabel">Office &amp; Showroom Address</span>
+                  <div class="contact-val address-val-text">Wereda 03, H.NO. 1263, Office NO.201, Ethio China St, Addis Abeba, Ethiopia</div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <span class="contact-label" data-i18n="phoneLabel">Direct Phone Line</span>
+                  <div class="contact-val"><a href="tel:0940414141" class="phone-tel-link phone-val-text">0940414141</a></div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div>
+                  <span class="contact-label" data-i18n="emailLabel">Email Inquiries</span>
+                  <div class="contact-val"><a href="mailto:contact@racrob.et">contact@racrob.et</a></div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <span class="contact-label" data-i18n="hoursLabel">Working Hours</span>
+                  <div class="contact-val" data-i18n="hoursValue">Monday - Saturday: 8:00 AM - 6:00 PM</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 28px;">
+              <a href="https://maps.google.com/?q=Wereda+03+Ethio+China+St+Addis+Ababa" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-block map-view-link" data-i18n="viewOnGoogleMaps">
+                View on Google Maps
+              </a>
+            </div>
+          </div>
+
+          <!-- Clickable Interactive Map -->
+          <div class="map-container-box">
+            <iframe
+              class="map-iframe"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15761.764516315273!2d38.7610!3d9.0050!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef0a8d6e9%3A0x6b72a6bca23f46f!2sEthio+China+St%2C+Addis+Ababa%2C+Ethiopia!5e0!3m2!1sen!2set!4v1700000000000"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="RACROB Showroom Location on Ethio China St, Addis Ababa">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Premium Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div>
+          <div class="brand-wrapper" style="margin-bottom: 16px;">
+            <img src="assets/images/sami.jpg" alt="RACROB Logo" style="height: 42px; border-radius: 4px;">
+            <div class="footer-brand-title">RACROB</div>
+          </div>
+          <p class="footer-brand-desc" data-i18n="footerText">
+            Supplying dependable water pumps and water-pumping solutions for residential, agricultural, commercial and construction applications in Addis Ababa, Ethiopia.
+          </p>
+          <div class="social-links-row">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/1FaYKw8d7y/" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-fb" id="facebook-link" title="Facebook" aria-label="Follow RACROB on Facebook">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <!-- Twitter / X -->
+            <a href="https://twitter.com/racrob_et" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-tw" id="twitter-link" title="Twitter / X" aria-label="Follow RACROB on Twitter">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@racrob_et" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-tt" id="tiktok-link" title="TikTok" aria-label="Follow RACROB on TikTok">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.3 6.3 0 0 0 1.87-4.49V8.69a8.18 8.18 0 0 0 4.9 1.6V6.85a4.86 4.86 0 0 1-1-.16z"/></svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/racrob_et" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-ig" id="instagram-link" title="Instagram" aria-label="Follow RACROB on Instagram">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/company/racrob" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-in" id="linkedin-link" title="LinkedIn" aria-label="Follow RACROB on LinkedIn">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading" data-i18n="navProducts">Products</h4>
+          <ul class="footer-nav-list">
+            <li><a href="products.html?cat=Pumps" class="footer-nav-link" data-i18n="categoryPumps">Water Pumps</a></li>
+            <li><a href="products.html?cat=Fittings" class="footer-nav-link" data-i18n="categoryFittings">Pipe Fittings &amp; Bends</a></li>
+            <li><a href="products.html?cat=Flanges" class="footer-nav-link" data-i18n="categoryFlanges">Flanges &amp; Couplings</a></li>
+            <li><a href="products.html?cat=Meters" class="footer-nav-link" data-i18n="categoryMeters">Flow Meters</a></li>
+            <li><a href="products.html?cat=Submersible" class="footer-nav-link" data-i18n="categorySubmersible">Submersible Pumps</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading" data-i18n="navApplications">Applications</h4>
+          <ul class="footer-nav-list">
+            <li><a href="applications.html" class="footer-nav-link">Agriculture &amp; Irrigation</a></li>
+            <li><a href="applications.html" class="footer-nav-link">Construction Dewatering</a></li>
+            <li><a href="applications.html" class="footer-nav-link">High-Rise Buildings</a></li>
+            <li><a href="applications.html" class="footer-nav-link">Municipal Networks</a></li>
+            <li><a href="applications.html" class="footer-nav-link">Domestic Boosting</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading" data-i18n="navContact">Contact Showroom</h4>
+          <ul class="footer-nav-list">
+            <li><strong style="color:#FFF;">Tel:</strong> <a href="tel:0940414141" class="phone-tel-link phone-val-text" style="color:var(--accent-cyan);">0940414141</a></li>
+            <li><strong style="color:#FFF;">Email:</strong> contact@racrob.et</li>
+            <li class="address-val-text" style="font-size:0.85rem;line-height:1.4;">Wereda 03, H.NO. 1263, Office NO.201, Ethio China St, Addis Abeba</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span data-i18n="footerCopyright">© 2026 RACROB Water Pump Supplier. All Rights Reserved.</span>
+        <div>
+          <a href="login.html" style="color:#64748B;font-size:0.8rem;text-decoration:none;">Admin Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Buy & Payment Modal (Controlled by site_settings) -->
+  <div class="modal-backdrop" id="buy-payment-modal" role="dialog" aria-modal="true" aria-labelledby="buy-modal-prod-title">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="buy-modal-close" aria-label="Close dialog">&times;</button>
+      <h3 class="modal-title" id="buy-modal-prod-title" data-i18n="paymentModalTitle">Complete Your Purchase</h3>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:16px;" data-i18n="paymentAccountNotice">
+        Please transfer your payment to our official bank account and upload your deposit slip or mobile confirmation receipt below.
+      </p>
+
+      <!-- Bank Details Box (Default 1000 per prompt specification, managed via site_settings) -->
+      <div class="bank-info-card">
+        <div class="bank-row">
+          <span class="bank-label" data-i18n="paymentBankLabel">Bank Name:</span>
+          <span class="bank-value" id="buy-modal-bank-name">Commercial Bank of Ethiopia (CBE)</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label" data-i18n="paymentAccountLabel">Bank Account:</span>
+          <span class="bank-value" id="buy-modal-bank-account" style="color:#15803D;font-size:1.3rem;">1000</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label" data-i18n="paymentBeneficiaryLabel">Account Name:</span>
+          <span class="bank-value">RACROB Trading PLC</span>
+        </div>
+      </div>
+
+      <form id="buy-payment-form">
+        <div class="form-group">
+          <label class="form-label" for="buy-customer-name" data-i18n="customerNameLabel">Customer Full Name *</label>
+          <input type="text" id="buy-customer-name" class="form-control" required placeholder="Full Name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="buy-customer-phone" data-i18n="customerPhoneLabel">Phone Number *</label>
+          <input type="tel" id="buy-customer-phone" class="form-control" required placeholder="09XXXXXXXX">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="buy-receipt-file" data-i18n="receiptUploadLabel">Attach Payment Receipt (JPG, PNG, PDF) *</label>
+          <input type="file" id="buy-receipt-file" class="form-control" accept=".jpg,.jpeg,.png,.webp,.pdf" required>
+          <div class="upload-progress-bar" id="upload-progress-bar">
+            <div class="upload-progress-fill" id="upload-progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="buy-customer-note" data-i18n="customerNoteLabel">Additional Order Notes (Optional)</label>
+          <textarea id="buy-customer-note" class="form-control" placeholder="Delivery address or special requirements..."></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="buy-modal-cancel" data-i18n="btnCancel">Cancel</button>
+          <button type="submit" class="btn btn-success" id="buy-submit-btn" data-i18n="btnUploadReceipt">Upload Bank Receipt</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Controller -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

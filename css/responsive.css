@@ -1,0 +1,245 @@
+/* ==============================================================
+   RACROB WATER PUMP SUPPLIER - RESPONSIVE BREAKPOINTS
+   Mobile-First Architecture: 320px, 375px, 430px, 768px, 1024px, 1280px, 1440px
+   ============================================================== */
+
+/* Base & Small Mobile (< 480px) */
+@media (max-width: 480px) {
+  .header-container {
+    height: 70px;
+  }
+
+  .brand-logo-img {
+    height: 40px;
+  }
+
+  .brand-title {
+    font-size: 1.25rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.65rem;
+  }
+
+  .desktop-nav, .btn-call-header {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .hero-slideshow-wrapper {
+    height: 480px;
+  }
+
+  .slide-title {
+    font-size: 1.65rem;
+    margin-bottom: 10px;
+  }
+
+  .slide-desc {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .slide-nav-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .slide-prev { left: 10px; }
+  .slide-next { right: 10px; }
+  html[dir="rtl"] .slide-prev { right: 10px; left: auto; }
+  html[dir="rtl"] .slide-next { left: 10px; right: auto; }
+
+  .intro-heading {
+    font-size: 1.75rem;
+  }
+
+  .intro-desc {
+    font-size: 1rem;
+  }
+
+  .intro-actions .btn {
+    width: 100%;
+  }
+
+  /* MANDATORY SPECIFICATION: On mobile, exactly 2 columns for products */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .product-body {
+    padding: 10px;
+  }
+
+  .product-title {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    -webkit-line-clamp: 2;
+  }
+
+  .product-desc {
+    display: none; /* Keep mobile cards neat and proportionate */
+  }
+
+  .product-price {
+    font-size: 0.95rem;
+  }
+
+  .product-footer {
+    padding-top: 8px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .product-footer .btn {
+    width: 100%;
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+
+  /* MANDATORY SPECIFICATION: On mobile, exactly 2 columns for applications */
+  .applications-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .app-body {
+    padding: 12px;
+  }
+
+  .app-title {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+
+  .app-desc {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .play-icon-circle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .booking-section-card {
+    padding: 24px 16px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+/* Tablet (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .hero-slideshow-wrapper {
+    height: 520px;
+  }
+
+  .slide-title {
+    font-size: 2rem;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .applications-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Medium Screens / Laptops (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .desktop-nav {
+    gap: 16px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .applications-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+  }
+}
+
+/* Large Screens (1025px to 1440px+) */
+@media (min-width: 1025px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .applications-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Touch Device Refinements */
+@media (hover: none) and (pointer: coarse) {
+  .btn, .nav-link, .lang-btn, .cat-chip, .page-btn {
+    min-height: 44px; /* Accessible minimum touch target */
+  }
+}
